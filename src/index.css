@@ -13,3 +13,65 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* reset.css */
+
+/* Скидання стилів для елементів */
+body,
+h1, h2, h3, h4, h5, h6,
+p, 
+ul, ol,
+li,
+blockquote,
+figure,
+table,
+fieldset,
+pre,
+button,
+input,
+textarea,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Скидання стилів для списків */
+ul, ol {
+  list-style: none;
+}
+
+/* Скидання стилів для зв'язки тексту */
+a {
+  text-decoration: none;
+  color: inherit;
+  
+}
+
+a:hover {
+
+color: blue;
+}
+
+/* Скидання стилів для кнопок */
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Додаткові скидання стилів */
+/* ... */
+
+/* Застосування скидання стилів до всього документа */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
