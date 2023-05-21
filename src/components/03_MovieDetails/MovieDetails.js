@@ -27,17 +27,21 @@ const MovieDetails = () => {
   const imagePath = dataDetails.poster_path;
   const fullImageUrl = `${BASE_IMAGE_URL}${imagePath}`;
 
+  const goBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className={css['MovieDetails']}>
-      <Link to="/">Back</Link>
+      <button onClick={goBack}>Back</button>
 
       <p>{dataDetails.title}</p>
       <img src={fullImageUrl} alt="Movie Poster" />
 
-		<div className={css['MovieDetails__list']}>
-			<Link to={`/movies/${movieId}/cast`}>Cast</Link>
-			<Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
-		</div>
+      <div className={css['MovieDetails__list']}>
+        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+        <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+      </div>
 
       <Outlet />
     </div>

@@ -29,10 +29,10 @@ export const App = () => {
   return (
     <>
       <header className={css['app']}>
-        <nav>
+        <nav className={css['navigation']}>
           {routesName.map(el => {
             return (
-              <NavLink to={el.path} key={el.path}>
+              <NavLink className={css['navigation--link']} to={el.path} key={el.path}>
                 {el.label}
               </NavLink>
             );

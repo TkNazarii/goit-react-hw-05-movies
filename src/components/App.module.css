@@ -1,18 +1,24 @@
 .app {
 	background-color: gray;
 	border: 1px solid black;
-	max-width: 1200px;
 	text-align: center;
 }
 
-nav {
+.navigation {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
 	margin: 30px;
+	color: aqua;
+  }
 
-	.active {
-		color: green;
-	}
-}
+  .navigation--link .active {
+	color: green;
+  }
+  
+  
+  
+  
+
+  
