@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import css from './Movies.module.scss';
 import debounce from 'debounce';
 import { fetchSearch } from '../../api/getMovies';
@@ -10,6 +10,7 @@ const Movies = () => {
   const [arrFilms, setArrFilms] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   const search = e => {
     setSearchParams({ name: e.target.value });
@@ -50,7 +51,7 @@ const Movies = () => {
         <ul>
           {arrFilms.map(item => (
             <li key={item.id}>
-              <Link to={`/movies/${item.id}`}>
+              <Link to={`/movies/${item.id}`} state={{ from: location }}>
                 <h3>{item.title}</h3>
 
                 {item.poster_path ? (

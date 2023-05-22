@@ -1,13 +1,17 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 import { fetchDetails } from '../../api/getMovies';
+import { BackLink } from './BackLink';
 
 import css from './MovieDetails.module.scss';
 
 const MovieDetails = () => {
   const [dataDetails, setDataDetails] = useState(null);
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/goit-react-hw-05-movies";
 
   useEffect(() => {
     fetchDetails(movieId)
@@ -27,13 +31,13 @@ const MovieDetails = () => {
   const imagePath = dataDetails.poster_path;
   const fullImageUrl = `${BASE_IMAGE_URL}${imagePath}`;
 
-  const goBack = () => {
-    window.history.back();
-  };
+
 
   return (
     <div className={css['MovieDetails']}>
-      <button onClick={goBack}>Back</button>
+      {/* <button onClick={goBack}>Back</button> */}
+	  {/* <Link to={backLinkHref}>Back to products</Link> */}
+	  <BackLink to={backLinkHref}>Back to products</BackLink>
 
       <p>{dataDetails.title}</p>
       <img src={fullImageUrl} alt="Movie Poster" />
