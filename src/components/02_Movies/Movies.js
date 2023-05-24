@@ -11,6 +11,7 @@ const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+//   console.log(location);
 
   const search = e => {
     setSearchParams({ name: e.target.value });
@@ -35,6 +36,8 @@ const Movies = () => {
     }
   }, [filmsSearch]);
 
+//   console.log(location.state);
+
   return (
     <div className={css['Movies']}>
       <input
@@ -51,7 +54,7 @@ const Movies = () => {
         <ul>
           {arrFilms.map(item => (
             <li key={item.id}>
-              <Link to={`/movies/${item.id}`} state={{ from: location }}>
+              <Link to={`/movies/${item.id}` } state={{ from: location }}>
                 <h3>{item.title}</h3>
 
                 {item.poster_path ? (
